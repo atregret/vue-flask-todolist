@@ -9,6 +9,7 @@
       <mu-flex class="flex-body-right" direction="column" align-items="center" fill style="background-color: gainsboro;">
         <mu-flex class="flex-test" justify-content="center" >
             <LineChart></LineChart>
+            <PieChart></PieChart>
         </mu-flex>
         <mu-flex class="flex-test" justify-content="center" >
           <mu-container class="cinput">
@@ -19,6 +20,8 @@
             <mu-col span="12" lg="4" sm="6">
               <mu-auto-complete :data="fruits" label="激活及显示输入提示" :max-search-results="5"  v-model="value3" open-on-focus></mu-auto-complete>
             </mu-col>
+
+        
             <mu-col span="12" lg="4" sm="6">
               <mu-button color="info">Info</mu-button>
               </mu-col>
@@ -42,12 +45,14 @@
 
 <script>
 import LineChart from './components/LineChart.vue'
+import PieChart from './components/PieChart.vue'
 // import TodoPage from './page/TodoPage.vue'
 // import NavMenu from './components/NavMenu.vue'
 export default {
   name: 'App',
   components: {
-     LineChart,
+    LineChart,
+    PieChart,
     // TodoPage,
     // NavMenu
   }

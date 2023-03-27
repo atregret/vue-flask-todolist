@@ -1,55 +1,76 @@
 <template>
-  <div id = "rt">
-    <div id="canvas" style="z-index: 999;"></div>
+  <div id = "line">
+    <div id="linecanvas"></div>
   
   </div>
   
 </template>
 
 <script>
-import { Rose } from '@antv/g2plot';
+//import { Pie } from '@antv/g2plot';
+import { Line } from '@antv/g2plot';
 export default {
     name: 'LineChart',
     data() {
         return {
         msg: 'Welcome to Your Vue.js App',
         chart: null,
-        data: [
-            {
-              type: '分类一',
-              value: 27,
-            },
-            {
-              type: '分类二',
-              value: 25,
-            },
-            {
-              type: '分类三',
-              value: 18,
-            },
-  
+        data:[
+          { year: '1991', value: 3 },
+          { year: '1992', value: 4 },
+          { year: '1993', value: 3.5 },
+          { year: '1994', value: 5 },
+          { year: '1995', value: 4.9 },
+          { year: '1996', value: 6 },
+          { year: '1997', value: 7 },
+          { year: '1998', value: 9 },
+          { year: '1999', value: 13 },
 ],
+  
         }
     },
     mounted() {
-      const rosePlot = new Rose('canvas', {
-        data:this.data,
-        radiusField: 'value',
-        categoryField: 'type',
-        colorField: 'type',
-        color:['blue','yellow','green'],
-        label: {
+            
+      const linePlot = new Line('linecanvas', {
+        title: {
           visible: true,
-          type: 'outer',
-      
+          text: '折线图',
         },
+        description: {
+          visible: true,
+          text: '用平滑的曲线代替折线。',
+        },
+        data:this.data,
+        xField: 'year',
+        yField: 'value',
+        width: 200,
+        height: 200,
       });
 
-      rosePlot.render();
-    }
+      linePlot.render();
+}
 }
 </script>
 
 <style>
 
 </style>
+
+
+// const linePlot = new Line('canvas', {
+//   title: {
+//     visible: true,
+//     text: '折线图',
+//   },
+//   description: {
+//     visible: true,
+//     text: '用平滑的曲线代替折线。',
+//   },
+//   data:this.data2,
+//   xField: 'year',
+//   yField: 'value',
+//   width: 200,
+//   height: 200,
+// });
+
+// linePlot.render();
